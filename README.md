@@ -7,14 +7,14 @@
 | 강의 | Demo Code | 강의 코드 | TIL | 과제 | 과제 코드 |
 | :-----: | :-------: | :---: | :------: | :-----------: | :----------: |
 | [1: Getting Started with SwiftUI](https://www.youtube.com/watch?v=n1qabtjZ_jg) | - | [Lecture 1](https://github.com/Rob-Yoo/Stanford-CS193P-Spring-2021/tree/main/Course_Code/Lecture1) | [Blog](https://rob-coding.tistory.com/12) | - | - |
-| [2: Learning More about SwiftUI](https://youtu.be/3lahkdHEhW8) | - | Lecture 2 | Blog | [Reading 1](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/reading_1.pdf)<br>[Programming 1](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/assignment_1.pdf) | 과제 코드 |
-| [3: MVVM](https://youtu.be/--qKOhdgJAs) | - | Lecture 3 | Blog | - | - |
-| [4: More MVVM enum Optionals](https://youtu.be/oWZOFSYS5GE) | - | Lecture 4 | Blog | [Reading 2](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/Reading%202.pdf)<br>[Programming 2](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/Assignment%202.pdf)| 과제 코드|
-| [5: Properties Layout @ViewBuilder](https://www.youtube.com/watch?v=ayQl_F_uMS4) | - | Lecture 5 | Blog | - | - |
-| [6: Protocols Shapes](https://www.youtube.com/watch?v=Og9gXZpbKWo) | - | Lecture 6 | Blog | [Reading 3](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/reading_3_0.pdf)<br>[Programming 3](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/assignment_3_0.pdf) | 과제 코드 |
-| [7: ViewModifier Animation](https://youtu.be/PoeaUMGAx6c) | - | Lecture 7 | Blog | - | - |
-| [8: Animation Demo](https://youtu.be/-N1UR7Y105g) | [L7+L8 Demo Code](https://web.stanford.edu/class/cs193p/Spring2021/MemorizeL8.zip) | Lecture 8 | Blog | [Programming 4](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/assignment_4_0.pdf) | 과제 코드 |
-| [9: EmojiArt Drag/Drop](https://youtu.be/eNS5EzgK3lY) | - | Lecture 9 | Blog | - | - |
+| [2: More about SwiftUI](https://www.youtube.com/watch?v=sXiD-2XrkKQ) | - | Lecture 2 | Blog | [Reading 1](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/reading_1.pdf)<br>[Programming 1](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/assignment_1.pdf) | 과제 코드 |
+| [3: MVVM](https://www.youtube.com/watch?v=W1ymVx6dmvc) | - | Lecture 3 | Blog | - | - |
+| [4: Applying MVVM](https://www.youtube.com/watch?v=4CkEVfdqjLw) | - | Lecture 4 | Blog | [Reading 2](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/Reading%202.pdf)<br>[Programming 2](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/Assignment%202.pdf)| 과제 코드|
+| [5: Protocols, enum, Optional](https://www.youtube.com/watch?v=F1x-H8kEwo8) | - | Lecture 5 | Blog | - | - |
+| [6: Layout, @ViewBuilder](https://www.youtube.com/watch?v=fYlMD9llu7w) | - | Lecture 6 | Blog | [Reading 3](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/reading_3_0.pdf)<br>[Programming 3](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/assignment_3_0.pdf) | 과제 코드 |
+| [7: Shape, ViewModifier, Constants](https://www.youtube.com/watch?v=KR7DXJYhkBw) | - | Lecture 7 | Blog | - | - |
+| [8: Animation (Part 1)](https://www.youtube.com/watch?v=L7hmw4ISh1A) | [L7+L8 Demo Code](https://web.stanford.edu/class/cs193p/Spring2021/MemorizeL8.zip) | Lecture 8 | Blog | [Programming 4](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/assignment_4_0.pdf) | 과제 코드 |
+| [9: Animation (Part 2)](https://www.youtube.com/watch?v=RCwmYEis5nA) | - | Lecture 9 | Blog | - | - |
 | [10: Gestures](https://youtu.be/iszjyoo3SYI) | [L9+L10 Demo Code](https://web.stanford.edu/class/cs193p/Spring2021/EmojiArtL10.zip) | Lecture 10 | Blog | [Programming 5](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/assignment_5_0.pdf) | 과제 코드 |
 | [11: Persistence Error Handling](https://youtu.be/pT5yiBu2xbU) |  - | Lecture 11 | Blog | - | - |
 | [12: Binding Sheet Navigation EditMode](https://youtu.be/s3tMkz1clOA) | [L11+L12 Demo Code](https://web.stanford.edu/class/cs193p/Spring2021/EmojiArtL12.zip) | Lecture 12 | Blog | [Programming 6](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/assignment_6.pdf) | 과제 코드 |
