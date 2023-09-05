@@ -8,38 +8,73 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis: [String] = ["💻", "🚨", "☎️", "🎉"]
+    let emojis: [String] = ["💻", "🚨", "☎️", "🎉", "💡", "🕹️", "📺", "⏱️", "💵"]
+    @State var cardCount: Int = 4
     var body: some View {
-        HStack {
-            // 뷰 빌더의 클로저 안에서는 조건문, 단순 코드, 지역 변수 사용만 가능
-            // 단순 for, while 반복문 불가능
-            // 따라서, 반복문 기능을 하는 함수를 사용해야 한다.
-            ForEach(emojis.indices, id: \.self) { index in
+        VStack {
+            ScrollView {
+                cards
+            }
+            Spacer()
+            cardCountAdjusters
+        }
+        .padding()
+    }
+    
+    var cards: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
+            ForEach(0..<cardCount, id: \.self) { index in
                 CardView(content: emojis[index])
+                    .aspectRatio(4/5, contentMode: .fit)
             }
         }
         .foregroundColor(.green)
-        .padding()
+    }
+    
+    var cardCountAdjusters: some View {
+        HStack {
+            cardRemover
+            Spacer()
+            cardAdder
+        }
+        .imageScale(.large).font(.largeTitle)
+    }
+    
+    var cardRemover: some View {
+        cardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.minus")
+    }
+    
+    var cardAdder: some View {
+        cardCountAdjuster(by: 1, symbol: "rectangle.stack.badge.plus")
+    }
+    
+    func cardCountAdjuster(by offset: Int, symbol: String) -> some View {
+        Button(action: {
+                cardCount += offset
+            }
+        , label: {
+            Image(systemName: symbol)
+        })
+        .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
     }
 }
+
 struct CardView: View {
     let content: String
-    @State var isFacedUp: Bool = true // React의 State와 비슷함
-    // 구조체에서는 당연히 프로퍼티 값을 바꾸지 못함. 따라서 SwitfUI에서는 @State라는 프로퍼티 래퍼를 사용해서 상태 프로퍼티로 정의해서 바꿔줄 수 있음
-    // 상태 프로퍼티 값이 바뀌면 재렌더링 신호임
+    @State var isFacedUp: Bool = true
     var body: some View {
         ZStack(content: {
             let base: RoundedRectangle = RoundedRectangle(cornerRadius: 10)
-//            let base: Circle = Circle()
-            if (isFacedUp) {
+            Group {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 5)
                 Text(content).font(.largeTitle)
-            } else {
-                base // 디폴트로 fill()이 호출됨 -> base.fill()
             }
-        }).onTapGesture(perform: { // perform 인자 생략하고 후행 클로저 사용 가능
-            isFacedUp.toggle() // Bool 타입의 변수는 toggle이라는 메서드가 있음
+            .opacity(isFacedUp ? 1 : 0)
+
+            base.fill().opacity(isFacedUp ? 0 : 1)
+        }).onTapGesture(perform: {
+            isFacedUp.toggle()
         })
     }
 }
