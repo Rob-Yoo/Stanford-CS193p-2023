@@ -7,7 +7,7 @@
 | 강의 | Demo Code | 강의 코드 | TIL | 과제 | 과제 코드 |
 | :-----: | :-------: | :---: | :------: | :-----------: | :----------: |
 | [1: Getting Started with SwiftUI](https://www.youtube.com/watch?v=n1qabtjZ_jg) | - | [Lecture 1](https://github.com/Rob-Yoo/Stanford-CS193p-2023/tree/Lecture_1) | [Blog](https://rob-coding.tistory.com/12) |[Reading 1](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/r1_0.pdf) | - |
-| [2: More about SwiftUI](https://www.youtube.com/watch?v=sXiD-2XrkKQ) | - | Lecture 2 | Blog | [Programming 1](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/a1_0.pdf) | 과제 코드 |
+| [2: More about SwiftUI](https://www.youtube.com/watch?v=sXiD-2XrkKQ) | - | [Lecture 2](https://github.com/Rob-Yoo/Stanford-CS193p-2023/tree/Lecture_2) | Blog | [Programming 1](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/a1_0.pdf) | 과제 코드 |
 | [3: MVVM](https://www.youtube.com/watch?v=W1ymVx6dmvc) | - | Lecture 3 | Blog | - | - |
 | [4: Applying MVVM](https://www.youtube.com/watch?v=4CkEVfdqjLw) | - | Lecture 4 | Blog | [Reading 2](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/r2_1.pdf) | - |
 | [5: Protocols, enum, Optional](https://www.youtube.com/watch?v=F1x-H8kEwo8) | - | Lecture 5 | Blog | [Programming 2](https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/a2_1.pdf) | - |
