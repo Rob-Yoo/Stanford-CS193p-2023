@@ -7,85 +7,127 @@
 
 import SwiftUI
 
+enum Theme {
+    case vehicles, emotions, animals
+    
+    var color: Color {
+        switch self {
+        case .vehicles: return Color.green
+        case .emotions: return Color.purple
+        case .animals: return Color.red
+        }
+    }
+}
+
 struct ContentView: View {
-    let emojis: [String] = ["💻", "🚨", "☎️", "🎉", "💡", "🕹️", "📺", "⏱️", "💵"]
-    @State var cardCount: Int = 4
+    @State var theme: Theme = .vehicles
+
     var body: some View {
         VStack {
-            ScrollView {
-                cards
-            }
-            Spacer()
-            cardCountAdjusters
-        }
-        .padding()
+            Text("Memorize!").font(.largeTitle)
+            cards
+            themeChoosingBtns
+        }.padding()
     }
     
     var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
-            ForEach(0..<cardCount, id: \.self) { index in
-                CardView(content: emojis[index])
-                    .aspectRatio(4/5, contentMode: .fit)
+        ScrollView {
+            CardGridView(theme: theme)
+        }
+    }
+    
+    var themeChoosingBtns: some View {
+        HStack(spacing: 40) {
+            Button(action: {
+                theme = .vehicles
+            }, label: {
+                VStack {
+                    Image(systemName: "car.rear").imageScale(.large).font(.title)
+                    Text("Vehicles")
+                }
+            })
+            Button(action: {
+                theme = .emotions
+            }, label: {
+                VStack {
+                    Image(systemName: "face.smiling").imageScale(.large).font(.title)
+                    Text("Emotions")
+                }
+            })
+            Button(action: {
+                theme = .animals
+            }, label: {
+                VStack {
+                    Image(systemName: "pawprint").imageScale(.large).font(.title)
+                    Text("Animals")
+                }
+            })
+        }
+    }
+}
+
+struct CardGridView: View {
+    let theme: Theme
+    let columns: [GridItem] = [ GridItem(.adaptive(minimum: 80)) ]
+    let emojis: [Theme: [String]] = [
+        .vehicles: ["🚗", "🚕", "🚙", "🚌", "🚑", "🚒", "🚓", "🚛", "🚜", "🛵"],
+        .emotions: ["😀", "🥹", "😍", "🤨", "😭", "😪", "😬", "🫠", "😤", "😩"],
+        .animals: ["🐶", "🐱", "🐹", "🐷", "🦁", "🐨", "🐻", "🐯", "🐸", "🐵"]
+    ]
+    var selectedEmojis: [String] {
+        emojis[theme]!.shuffled() + emojis[theme]!.shuffled()
+    }
+
+    var body: some View {
+        LazyVGrid(columns: columns) {
+            ForEach(selectedEmojis.indices, id: \.self) { idx in
+                CardView(isFacedUp: false,emoji: selectedEmojis[idx], color: theme.color)
             }
         }
-        .foregroundColor(.green)
     }
-    
-    var cardCountAdjusters: some View {
-        HStack {
-            cardRemover
-            Spacer()
-            cardAdder
-        }
-        .imageScale(.large).font(.largeTitle)
-    }
-    
-    var cardRemover: some View {
-        cardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.minus")
-    }
-    
-    var cardAdder: some View {
-        cardCountAdjuster(by: 1, symbol: "rectangle.stack.badge.plus")
-    }
-    
-    func cardCountAdjuster(by offset: Int, symbol: String) -> some View {
-        Button(action: {
-                cardCount += offset
-            }
-        , label: {
-            Image(systemName: symbol)
-        })
-        .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
-    }
+//    var selectedEmojis: [String] {
+//        emojis[theme]!.shuffled()
+//    }
+//
+//    var body: some View {
+//        LazyVGrid(columns: columns) {
+//            ForEach(selectedEmojis, id: \.self) { emoji in
+//                CardView(emoji: emoji, color: theme.color)
+//            }
+//            ForEach(selectedEmojis, id: \.self) { emoji in
+//                CardView(emoji: emoji, color: theme.color)
+//            }
+//        }
+//    }
 }
 
 struct CardView: View {
-    let content: String
-    @State var isFacedUp: Bool = true
+    @State var isFacedUp: Bool = false
+    let emoji: String
+    let color: Color
     var body: some View {
-        ZStack(content: {
+        ZStack {
             let base: RoundedRectangle = RoundedRectangle(cornerRadius: 10)
-            Group {
+            if (isFacedUp) {
                 base.fill(.white)
-                base.strokeBorder(lineWidth: 5)
-                Text(content).font(.largeTitle)
+                base.strokeBorder(lineWidth: 5).cornerRadius(10)
+                Text(emoji).font(.largeTitle)
+            } else {
+                base
             }
-            .opacity(isFacedUp ? 1 : 0)
-
-            base.fill().opacity(isFacedUp ? 0 : 1)
-        }).onTapGesture(perform: {
+        }
+        .frame(minHeight: 100)
+        .foregroundColor(color)
+        .onTapGesture {
             isFacedUp.toggle()
-        })
+        }
     }
 }
-
-
-
-
 
 // Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("iPhone 14")
     }
 }
