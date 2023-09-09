@@ -31,10 +31,9 @@
 <br>
 
 ## # 과제 1
-<img width="200" height="350" alt="스크린샷 2023-09-09 오후 8 30 06" src="https://github.com/Rob-Yoo/Stanford-CS193p-2023/assets/60279483/ab71cd25-c14a-46dd-8763-c50158bde941">
-<img width="200" height="350" alt="스크린샷 2023-09-09 오후 8 29 53" src="https://github.com/Rob-Yoo/Stanford-CS193p-2023/assets/60279483/c5f73983-4269-4567-9f1f-008890a65947">
 <img width="200" height="350" alt="스크린샷 2023-09-09 오후 8 29 37" src="https://github.com/Rob-Yoo/Stanford-CS193p-2023/assets/60279483/511fb29d-0c61-4360-8299-40c26dd9151a">
-
+<img width="200" height="350" alt="스크린샷 2023-09-09 오후 8 29 53" src="https://github.com/Rob-Yoo/Stanford-CS193p-2023/assets/60279483/c5f73983-4269-4567-9f1f-008890a65947">
+<img width="200" height="350" alt="스크린샷 2023-09-09 오후 8 30 06" src="https://github.com/Rob-Yoo/Stanford-CS193p-2023/assets/60279483/ab71cd25-c14a-46dd-8763-c50158bde941">
 
 <br>
 
