@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-enum Theme {
-    case vehicles, emotions, animals
+// MARK: - 카드 테마 관련 enum 타입 선언부
+
+enum Theme: String {
+    case vehicles = "Vehicles", emotions = "Emotions", animals = "Animals"
     
     var color: Color {
         switch self {
@@ -17,7 +19,17 @@ enum Theme {
         case .animals: return Color.red
         }
     }
+    
+    var image: Image {
+        switch self {
+        case .vehicles: return Image(systemName: "car.rear")
+        case .emotions: return Image(systemName: "face.smiling")
+        case .animals: return Image(systemName: "pawprint")
+        }
+    }
 }
+
+// MARK: - ContentView
 
 struct ContentView: View {
     @State var theme: Theme = .vehicles
@@ -38,33 +50,14 @@ struct ContentView: View {
     
     var themeChoosingBtns: some View {
         HStack(spacing: 40) {
-            Button(action: {
-                theme = .vehicles
-            }, label: {
-                VStack {
-                    Image(systemName: "car.rear").imageScale(.large).font(.title)
-                    Text("Vehicles")
-                }
-            })
-            Button(action: {
-                theme = .emotions
-            }, label: {
-                VStack {
-                    Image(systemName: "face.smiling").imageScale(.large).font(.title)
-                    Text("Emotions")
-                }
-            })
-            Button(action: {
-                theme = .animals
-            }, label: {
-                VStack {
-                    Image(systemName: "pawprint").imageScale(.large).font(.title)
-                    Text("Animals")
-                }
-            })
+            ButtonView(theme: $theme, buttonContent: .vehicles)
+            ButtonView(theme: $theme, buttonContent: .emotions)
+            ButtonView(theme: $theme, buttonContent: .animals)
         }
     }
 }
+
+// MARK: - 여러 카드를 그리드 형태로 렌더링 하는 부분
 
 struct CardGridView: View {
     let theme: Theme
@@ -81,25 +74,13 @@ struct CardGridView: View {
     var body: some View {
         LazyVGrid(columns: columns) {
             ForEach(selectedEmojis.indices, id: \.self) { idx in
-                CardView(isFacedUp: false,emoji: selectedEmojis[idx], color: theme.color)
+                CardView(emoji: selectedEmojis[idx], color: theme.color)
             }
         }
     }
-//    var selectedEmojis: [String] {
-//        emojis[theme]!.shuffled()
-//    }
-//
-//    var body: some View {
-//        LazyVGrid(columns: columns) {
-//            ForEach(selectedEmojis, id: \.self) { emoji in
-//                CardView(emoji: emoji, color: theme.color)
-//            }
-//            ForEach(selectedEmojis, id: \.self) { emoji in
-//                CardView(emoji: emoji, color: theme.color)
-//            }
-//        }
-//    }
 }
+
+// MARK: - 카드 앞면과 뒷면을 렌더링하는 부분
 
 struct CardView: View {
     @State var isFacedUp: Bool = false
@@ -122,6 +103,25 @@ struct CardView: View {
             isFacedUp.toggle()
         }
     }
+}
+
+// MARK: - 카드의 테마를 정하는 버튼 레이아웃
+
+struct ButtonView: View {
+    @Binding var theme: Theme
+    let buttonContent: Theme
+    
+    var body: some View {
+        Button(action: {
+            theme = buttonContent
+        }, label: {
+            VStack {
+                buttonContent.image.imageScale(.large).font(.title)
+                Text(buttonContent.rawValue)
+            }
+        })
+    }
+    
 }
 
 // Preview
